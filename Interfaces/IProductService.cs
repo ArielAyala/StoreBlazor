@@ -4,5 +4,5 @@ public interface IProductService
 {
     Task<List<Product>?> GetProducts();
     Task AddProduct(Product product);
-    Task DeleteProduct(int idProduct);
+    Task DeleteProduct(int productId);
 }
