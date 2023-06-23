@@ -6,18 +6,18 @@ namespace StoreBlazor;
 
 public class ProductService : IProductService
 {
-    public readonly HttpClient _client;
+    private readonly HttpClient _client;
     private readonly JsonSerializerOptions _options;
 
-    public ProductService(HttpClient httpClient, JsonSerializerOptions options)
+    public ProductService(HttpClient httpClient)
     {
         _client = httpClient;
-        _options = options;
+        _options = new JsonSerializerOptions{ PropertyNameCaseInsensitive = true};
     }
 
     public async Task<List<Product>?> GetProducts()
     {
-        var response = await _client.GetAsync("/v1/products");
+        var response = await _client.GetAsync("v1/products");
         var content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
