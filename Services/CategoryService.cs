@@ -8,10 +8,10 @@ public class CategoryService : ICategoryService
     public readonly HttpClient _client;
     private readonly JsonSerializerOptions _options;
 
-    public CategoryService(HttpClient httpClient, JsonSerializerOptions options)
+    public CategoryService(HttpClient httpClient)
     {
         _client = httpClient;
-        _options = options;
+        _options = new JsonSerializerOptions{ PropertyNameCaseInsensitive = true};
     }
 
     public async Task<List<Category>?> GetCategories()
