@@ -1,0 +1,23 @@
+@page "/add-product"
+@inject IProductService _productService
+@inject ICategoryService _categoryService
+@inject NavigationManager _navigationManager
+
+<PageTitle>Add product</PageTitle>
+<TitleComponent Title="Add product" />
+
+<button class="btn btn-primary" @onclick="@(()=> _navigationManager.NavigateTo("/products"))">Go back to products</button>
+<EditForm Model="@product">
+    <div class="row">
+        <div class="col-8 form-group">
+            <label for="title" class="col-form-labe"></label>
+            <InputText id="title" @bind-Value="product.Title" required class="form-control" />
+        </div>
+    </div>
+
+</EditForm>
+
+@code 
+{
+    private Product product = new ();
+}
