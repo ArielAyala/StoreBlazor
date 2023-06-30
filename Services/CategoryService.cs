@@ -16,7 +16,7 @@ public class CategoryService : ICategoryService
 
     public async Task<List<Category>?> GetCategories()
     {
-        var response = await _client.GetAsync("/v1/categories");
+        var response = await _client.GetAsync("v1/categories");
         var content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -27,7 +27,7 @@ public class CategoryService : ICategoryService
 
     public async Task AddCategory(Category category)
     {
-        var response = await _client.PostAsync("/v1/categories", JsonContent.Create(category));
+        var response = await _client.PostAsync("v1/categories", JsonContent.Create(category));
         var content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -37,7 +37,7 @@ public class CategoryService : ICategoryService
 
     public async Task DeleteCategory(int categoryId)
     {
-        var response = await _client.DeleteAsync($"/v1/products/{categoryId}");
+        var response = await _client.DeleteAsync($"v1/categories/{categoryId}");
         var content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
