@@ -29,7 +29,7 @@ public class ProductService : IProductService
     public async Task AddProduct(Product product)
     {
 
-        var response = await _client.PostAsync("/v1/products", JsonContent.Create(product));
+        var response = await _client.PostAsync("v1/products", JsonContent.Create(product));
         var content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
