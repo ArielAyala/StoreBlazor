@@ -39,12 +39,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-        products = await GetProducts();
+        await GetProducts();
     }
 
-    private async Task<List<Product>> GetProducts()
+    private async Task GetProducts()
     {
-        return await _productService.GetProducts();
+        products = await _productService.GetProducts();
     }
 
     private async Task DeleteProduct(Product product)
@@ -53,6 +53,6 @@
             return;
 
         await _productService.DeleteProduct(product.Id);
-        products = await GetProducts();
+        await GetProducts();
     }
 }
