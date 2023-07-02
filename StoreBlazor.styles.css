@@ -1,3 +1,10 @@
+/* /Pages/Products/Products.razor.rz.scp.css */
+.products-container[b-tioxr69il2] {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 280px);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-5ki4ffm64q] {
     position: relative;
